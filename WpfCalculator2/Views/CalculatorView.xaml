@@ -6,64 +6,46 @@
         xmlns:local="clr-namespace:WpfCalculator2.Views"
         xmlns:viewModels="clr-namespace:WpfCalculator2.ViewModels"
         mc:Ignorable="d"
-        Title="CalculatorView" Height="450" Width="800">
+        Title="CalculatorView" Height="470" Width="800">
     <Window.Resources>
-
-        <Style x:Key="RoundCorner" TargetType="{x:Type Button}">
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Margin" Value="20" />
+        <Style x:Key="myStyle" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="FontSize" Value="20px" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid x:Name="grid">
-                            <Border x:Name="border" CornerRadius="8" BorderBrush="Black" BorderThickness="2">
-                                <Border.Background>
-                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                        <RadialGradientBrush.RelativeTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform CenterX="0.5" CenterY="0.5" 
-                                                        ScaleX="1.5" ScaleY="1.5"/>
-                                                <TranslateTransform X="0.02" Y="0.3"/>
-                                            </TransformGroup>
-                                        </RadialGradientBrush.RelativeTransform>
-                                        <GradientStop Offset="1" Color="#00000000"/>
-                                        <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
-                                    </RadialGradientBrush>
-                                </Border.Background>
-                                <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          TextElement.FontWeight="Bold">
-                                </ContentPresenter>
-                            </Border>
-
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" TargetName="border">
-                                    <Setter.Value>
-                                        <RadialGradientBrush GradientOrigin="0.496,1.052">
-                                            <RadialGradientBrush.RelativeTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
-                                                    <TranslateTransform X="0.02" Y="0.3"/>
-                                                </TransformGroup>
-                                            </RadialGradientBrush.RelativeTransform>
-                                            <GradientStop Color="#00000000" Offset="1"/>
-                                            <GradientStop Color="#FF303030" Offset="0.3"/>
-                                        </RadialGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#FF33962B"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" TargetName="grid" Value="0.25"/>
-                            </Trigger>
-
-                        </ControlTemplate.Triggers>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="LightGray" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="operators" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="FontSize" Value="20px" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="DarkGray" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="equals" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="FontSize" Value="20px" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="LightSlateGray" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -72,42 +54,63 @@
     <Window.DataContext>
         <viewModels:CalculatorViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid
+        Margin="10"
+        Background="AliceBlue"
+        >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <UniformGrid
-            Rows="4"
-            Columns="3">
-            <Button Content="1" Style="{DynamicResource RoundCorner}"/>
-            <Button Content="2" />
-            <Button Content="2" />
-        </UniformGrid>
+        <StackPanel
+            Grid.Column="0"
+            Margin="10">
+            <TextBox
+                Width="400"
+                Height="50"
+                Margin="20"/>
+            <UniformGrid
+                Rows="4"
+                Columns="3"
+                Height="300">
+                <Button Content="1" Style="{DynamicResource myStyle}"/>
+                <Button Content="2" Style="{DynamicResource myStyle}"/>
+                <Button Content="3" Style="{DynamicResource myStyle}"/>
+                <Button Content="4" Style="{DynamicResource myStyle}"/>
+                <Button Content="5" Style="{DynamicResource myStyle}"/>
+                <Button Content="6" Style="{DynamicResource myStyle}"/>
+                <Button Content="7" Style="{DynamicResource myStyle}"/>
+                <Button Content="8" Style="{DynamicResource myStyle}"/>
+                <Button Content="9" Style="{DynamicResource myStyle}"/>
+                <Button Content="." Style="{DynamicResource myStyle}"/>
+                <Button Content="0" Style="{DynamicResource myStyle}"/>
+                <Button Content="CE" Style="{DynamicResource myStyle}"/>
+            </UniformGrid>
+        </StackPanel>
         <StackPanel
             Grid.Column="1"
-            Orientation="Horizontal">
-            <StackPanel
-                Orientation="Vertical"
-                Margin="20"
-                HorizontalAlignment="Center">
-                <Label
-                    HorizontalAlignment="Center"
-                    Content="Wpf Calculator"
-                    FontSize="24"></Label>
-                <StackPanel
-                Orientation="Vertical">
-                    <TextBox
-                        Width="100"
-                        Height="30"
-                        Margin="20"/>
-                    <TextBox
-                        Width="100"
-                        Height="30"
-                        Margin="20"/>
-                </StackPanel>
-            </StackPanel>
-
+            Orientation="Vertical" Margin="0">
+            <Label
+                HorizontalAlignment="Center"
+                Content="Wpf Calculator"
+                FontSize="24">
+            </Label>
+            <UniformGrid
+                Rows="5"
+                Columns="2"
+                Height="300">
+                <Button Content="+" Style="{DynamicResource operators}"/>
+                <Button Content="sin" Style="{DynamicResource operators}"/>
+                <Button Content="-" Style="{DynamicResource operators}"/>
+                <Button Content="cos" Style="{DynamicResource operators}"/>
+                <Button Content="*" Style="{DynamicResource operators}"/>
+                <Button Content="tan" Style="{DynamicResource operators}"/>
+                <Button Content="/" Style="{DynamicResource operators}"/>
+                <Button Content="^2" Style="{DynamicResource operators}"/>
+                <Button Content="%" Style="{DynamicResource operators}"/>
+                <Button Content="sqrt" Style="{DynamicResource operators}"/>
+            </UniformGrid>
+            <Button Content="=" Height="40" Style="{DynamicResource equals}"/>
         </StackPanel>
     </Grid>
 </Window>
