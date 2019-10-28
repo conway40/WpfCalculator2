@@ -68,23 +68,25 @@
             <TextBox
                 Width="400"
                 Height="50"
-                Margin="20"/>
+                Margin="20"
+                Text="{Binding DisplayContent}"
+                IsReadOnly="True"/>
             <UniformGrid
                 Rows="4"
                 Columns="3"
                 Height="300">
-                <Button Content="1" Style="{DynamicResource myStyle}"/>
-                <Button Content="2" Style="{DynamicResource myStyle}"/>
-                <Button Content="3" Style="{DynamicResource myStyle}"/>
-                <Button Content="4" Style="{DynamicResource myStyle}"/>
-                <Button Content="5" Style="{DynamicResource myStyle}"/>
-                <Button Content="6" Style="{DynamicResource myStyle}"/>
-                <Button Content="7" Style="{DynamicResource myStyle}"/>
-                <Button Content="8" Style="{DynamicResource myStyle}"/>
-                <Button Content="9" Style="{DynamicResource myStyle}"/>
-                <Button Content="." Style="{DynamicResource myStyle}"/>
-                <Button Content="0" Style="{DynamicResource myStyle}"/>
-                <Button Content="CE" Style="{DynamicResource myStyle}"/>
+                <Button Content="1" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="1"/>
+                <Button Content="2" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="2"/>
+                <Button Content="3" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="3"/>
+                <Button Content="4" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="4"/>
+                <Button Content="5" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="5"/>
+                <Button Content="6" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="6"/>
+                <Button Content="7" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="7"/>
+                <Button Content="8" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="8"/>
+                <Button Content="9" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="9"/>
+                <Button Content="." Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="."/>
+                <Button Content="0" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="0"/>
+                <Button Content="CE" Style="{DynamicResource myStyle}" Command="{Binding ButtonNumberCommand}" CommandParameter="CE"/>
             </UniformGrid>
         </StackPanel>
         <StackPanel
@@ -99,18 +101,18 @@
                 Rows="5"
                 Columns="2"
                 Height="300">
-                <Button Content="+" Style="{DynamicResource operators}"/>
-                <Button Content="sin" Style="{DynamicResource operators}"/>
-                <Button Content="-" Style="{DynamicResource operators}"/>
-                <Button Content="cos" Style="{DynamicResource operators}"/>
-                <Button Content="*" Style="{DynamicResource operators}"/>
-                <Button Content="tan" Style="{DynamicResource operators}"/>
-                <Button Content="/" Style="{DynamicResource operators}"/>
-                <Button Content="^2" Style="{DynamicResource operators}"/>
-                <Button Content="%" Style="{DynamicResource operators}"/>
-                <Button Content="sqrt" Style="{DynamicResource operators}"/>
+                <Button Content="+" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="+"/>
+                <Button Content="sin" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="sin"/>
+                <Button Content="-" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="-"/>
+                <Button Content="cos" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="cos"/>
+                <Button Content="*" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="*"/>
+                <Button Content="tan" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="tan"/>
+                <Button Content="/" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="/"/>
+                <Button Content="^2" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="sqr"/>
+                <Button Content="%" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="%"/>
+                <Button Content="sqrt" Style="{DynamicResource operators}" Command="{Binding ButtonOperationCommand}" CommandParameter="sqrt"/>
             </UniformGrid>
-            <Button Content="=" Height="40" Style="{DynamicResource equals}"/>
+            <Button Content="=" Height="40" Style="{DynamicResource equals}" Command="{Binding ButtonOperationCommand}" CommandParameter="="/>
         </StackPanel>
     </Grid>
 </Window>
